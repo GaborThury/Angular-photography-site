@@ -1,15 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
+import { ImageService } from '../../services/image.service';
 
 @Component({
   selector: 'app-galleries',
   templateUrl: './galleries.component.html',
   styleUrls: ['./galleries.component.css']
 })
-export class GalleriesComponent implements OnInit {
+export class GalleriesComponent implements OnChanges {
 
-  constructor() { }
+  @Input()
+    filterBy = 'all';
 
-  ngOnInit() {
+  visibleImages: any[] = [];
+
+  constructor(private imageService: ImageService) {
+    this.visibleImages = this.imageService.getImages();
+   }
+
+  ngOnChanges() {
+    this.visibleImages = this.imageService.getImages();
   }
 
 }

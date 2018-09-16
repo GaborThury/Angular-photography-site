@@ -9,12 +9,19 @@ import { RouterModule, Routes } from '@angular/router';
 import { MyPhotosComponent } from './components/my-photos/my-photos.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { GroupsComponent } from './components/groups/groups.component';
+import { PhotoUploadComponent } from './components/photo-upload/photo-upload.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AlertModule } from 'ngx-bootstrap/alert';
+import { ImageDetailComponent } from './components/image-detail/image-detail.component';
+import { ImageService } from './services/image.service';
+import { FilterPipe } from './pipes/filter.pipe';
 
 const paths: Routes = [
   { path: '', component: MyPhotosComponent },
   { path: 'galleries', component: GalleriesComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'groups', component: GroupsComponent }
+  { path: 'groups', component: GroupsComponent },
+  { path: 'new', component: PhotoUploadComponent }
 ];
 
 @NgModule({
@@ -26,13 +33,21 @@ const paths: Routes = [
     MyPhotosComponent,
     ProfileComponent,
     GroupsComponent,
+    PhotoUploadComponent,
+    ImageDetailComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
     TooltipModule.forRoot(),
-    RouterModule.forRoot(paths)
+    RouterModule.forRoot(paths),
+    HttpClientModule,
+    AlertModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    ImageService,
+    FilterPipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
