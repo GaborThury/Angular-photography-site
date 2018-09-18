@@ -1,5 +1,3 @@
-<alert type="info">Gallery works!</alert>
-
 <div class="row">
   <button class="btn btn-lg btn-info" [class.active]="filterBy=='all'" (click)="filterBy='all'">All</button>
   <button class="btn btn-lg btn-info" [class.active]="filterBy=='nature'" (click)="filterBy='nature'">Nature</button>
@@ -8,9 +6,7 @@
 
   <ul id="thumbnailList">
     <li *ngFor="let image of (visibleImages | filter:filterBy)">
-      <img src="{{image.url}}" class="tn" width="200" height="160" alt="image">
+      <img src="{{image.url}}" class="tn img-fluid" width="300" height="200" alt="image">
     </li>
   </ul>
-
-
 </div>
