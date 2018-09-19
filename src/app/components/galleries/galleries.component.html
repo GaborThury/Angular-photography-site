@@ -1,12 +1,13 @@
 <div class="row">
-  <button class="btn btn-lg btn-info" [class.active]="filterBy=='all'" (click)="filterBy='all'">All</button>
-  <button class="btn btn-lg btn-info" [class.active]="filterBy=='nature'" (click)="filterBy='nature'">Nature</button>
-  <button class="btn btn-lg btn-info" [class.active]="filterBy=='dogs'" (click)="filterBy='dogs'">Dogs</button>
-  <button class="btn btn-lg btn-info" [class.active]="filterBy=='mushrooms'" (click)="filterBy='mushrooms'">Mushrooms</button>
-
+  <div class="d-flex justify-content-between" style="width: 80vw">
+    <button class="btn btn-lg btn-info" [class.active]="filterBy=='all'" (click)="filterBy='all'">All</button>
+    <button class="btn btn-lg btn-info" [class.active]="filterBy=='nature'" (click)="filterBy='nature'">Nature</button>
+    <button class="btn btn-lg btn-info" [class.active]="filterBy=='animals'" (click)="filterBy='animals'">Animals</button>
+    <button class="btn btn-lg btn-info" [class.active]="filterBy=='city'" (click)="filterBy='city'">City</button>
+  </div>
   <ul id="thumbnailList">
     <li *ngFor="let image of (visibleImages | filter:filterBy)">
-      <img src="{{image.url}}" class="tn img-fluid" width="300" height="200" alt="image">
+        <img (click)="open(image.url)" src="http://localhost:3010/uploads/{{image.url}}" class="tn img-fluid" width="300" height="200" alt="image">
     </li>
   </ul>
 </div>

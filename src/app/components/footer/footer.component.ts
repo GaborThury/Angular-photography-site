@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -11,6 +11,10 @@ export class FooterComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  validPages(): boolean {
+    return this.router.url !== '/';
   }
 
 }

@@ -8,7 +8,6 @@ import { GalleriesComponent } from './components/galleries/galleries.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MyPhotosComponent } from './components/my-photos/my-photos.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { GroupsComponent } from './components/groups/groups.component';
 import { PhotoUploadComponent } from './components/photo-upload/photo-upload.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AlertModule } from 'ngx-bootstrap/alert';
@@ -17,10 +16,12 @@ import { ImageService } from './services/image.service';
 import { FilterPipe } from './pipes/filter.pipe';
 
 const paths: Routes = [
-  { path: '', component: MyPhotosComponent },
+  { path: '', component: MyPhotosComponent, data: {
+    hideFooter: true
+  }},
   { path: 'galleries', component: GalleriesComponent },
+  { path: 'photo/:url', component: ImageDetailComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'groups', component: GroupsComponent },
   { path: 'new', component: PhotoUploadComponent }
 ];
 
@@ -32,7 +33,6 @@ const paths: Routes = [
     GalleriesComponent,
     MyPhotosComponent,
     ProfileComponent,
-    GroupsComponent,
     PhotoUploadComponent,
     ImageDetailComponent,
     FilterPipe,
@@ -46,7 +46,7 @@ const paths: Routes = [
   ],
   providers: [
     ImageService,
-    FilterPipe
+    FilterPipe,
   ],
   bootstrap: [AppComponent]
 })

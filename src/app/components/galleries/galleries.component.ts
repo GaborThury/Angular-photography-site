@@ -1,5 +1,7 @@
-import { Component, OnInit, OnChanges, Input } from '@angular/core';
+import { Component, OnChanges, Input } from '@angular/core';
 import { ImageService } from '../../services/image.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-galleries',
@@ -13,12 +15,20 @@ export class GalleriesComponent implements OnChanges {
 
   visibleImages: any[] = [];
 
-  constructor(private imageService: ImageService) {
-    this.visibleImages = this.imageService.getImages();
+  constructor(private imageService: ImageService, private router: Router) {
+    this.imageService.getImagesFromServer().subscribe((res) => {
+      this.visibleImages = res;
+    });
    }
 
+  open(url) {
+    this.router.navigate(['/photo/' + url], url);
+  }
+
   ngOnChanges() {
-    this.visibleImages = this.imageService.getImages();
+    this.imageService.getImagesFromServer().subscribe((res) => {
+      this.visibleImages = res;
+    });
   }
 
 }
