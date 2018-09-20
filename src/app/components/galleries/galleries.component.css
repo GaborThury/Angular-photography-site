@@ -1,7 +1,11 @@
 ul { 
-  width: 1200px;
+  width: 80vw;
   margin: 20px auto;
   background-color: #eee
+}
+
+.filterBar {
+  width: 40vw
 }
 
 .tn {

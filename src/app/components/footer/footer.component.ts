@@ -13,7 +13,7 @@ export class FooterComponent implements OnInit {
   ngOnInit() {
   }
 
-  validPages(): boolean {
+  isFixed(): boolean {
     if ((this.router.url === '/') || (this.router.url === '/galleries') ) {
       return false;
     } else {

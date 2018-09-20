@@ -11,9 +11,18 @@ export class ImageDetailComponent implements OnInit {
 
   photo: string[];
   pictureUrl: string;
+  showConfirm = false;
 
   constructor(private imageService: ImageService, private router: Router,
     private activatedRoute: ActivatedRoute) { }
+
+  confirmDelete() {
+    this.showConfirm = true;
+  }
+
+  delete() {
+    // TODO: delete;
+  }
 
   ngOnInit() {
     this.pictureUrl = this.activatedRoute.snapshot.params.url;

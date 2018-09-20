@@ -12,15 +12,19 @@ export class PhotoUploadComponent implements OnInit {
   selectedFile: File = null;
   category = '';
   name = '';
+  extension = '';
 
   onFileSelected(event) {
+    this.succesfulUpload = false;
+    this.errorInUploadProgress = false;
     this.selectedFile = <File>event.target.files[0];
     this.name = this.selectedFile.name;
+    this.extension = (this.selectedFile.name.split('.').pop());
   }
 
   onUpload() {
     const fd = new FormData();
-    fd.append('photo', this.selectedFile, this.name + '.jpg');
+    fd.append('photo', this.selectedFile, this.name + '.' + this.extension);
     fd.append('category', this.category);
     this.http.post('http://localhost:3010/photos', fd, {reportProgress: true, observe: 'events'})
     .subscribe(event => {

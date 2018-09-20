@@ -1,11 +1,11 @@
 <div class="row">
-  <div class="d-flex justify-content-between" style="width: 80vw">
+  <div class="d-flex justify-content-between filterBar mx-auto">
     <button class="btn btn-lg btn-info" [class.active]="filterBy=='all'" (click)="filterBy='all'">All</button>
     <button class="btn btn-lg btn-info" [class.active]="filterBy=='nature'" (click)="filterBy='nature'">Nature</button>
     <button class="btn btn-lg btn-info" [class.active]="filterBy=='animals'" (click)="filterBy='animals'">Animals</button>
     <button class="btn btn-lg btn-info" [class.active]="filterBy=='city'" (click)="filterBy='city'">City</button>
   </div>
-  <ul class=" d-flex align-content-start flex-wrap" id="thumbnailList">
+  <ul class=" d-flex align-content flex-wrap" id="thumbnailList">
     <div class="tn d-flex flex-column" *ngFor="let image of (visibleImages | filter:filterBy)">
         <img (click)="open(image.url)" src="http://localhost:3010/uploads/{{image.url}}" class="img-fluid" width="300" height="200" alt="image">
         <a class="mx-auto pd-2"> {{image.title}} </a>

@@ -1,5 +1,7 @@
 <div class="d-flex flex-row">
   <a routerLink="/galleries" class="text-light bg-info mr-2 p-2 rounded">Back</a>
+  <a (click)="confirmDelete()" class="text-light bg-danger p-2 rounded">Delete photo</a>
+  <a (click)="delete()" *ngIf="showConfirm" class="text-light bg-danger ml-5 p-2 rounded">Confirm delete</a>
 </div>
 
 <div class="d-flex justify-content-center">
