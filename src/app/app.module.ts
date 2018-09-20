@@ -15,6 +15,7 @@ import { ImageDetailComponent } from './components/image-detail/image-detail.com
 import { ImageService } from './services/image.service';
 import { FilterPipe } from './pipes/filter.pipe';
 import { FormsModule } from '@angular/forms';
+import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 
 const paths: Routes = [
   { path: '', component: MyPhotosComponent, data: {
@@ -44,7 +45,8 @@ const paths: Routes = [
     RouterModule.forRoot(paths),
     HttpClientModule,
     AlertModule.forRoot(),
-    FormsModule
+    FormsModule,
+    Ng2CarouselamosModule
   ],
   providers: [
     ImageService,

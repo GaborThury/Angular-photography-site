@@ -1,55 +1,26 @@
-
-  <div id="MagicCarousel" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#MagicCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#MagicCarousel" data-slide-to="1"></li>
-      <li data-target="#MagicCarousel" data-slide-to="2"></li>
-      <li data-target="#MagicCarousel" data-slide-to="3"></li>
-      <li data-target="#MagicCarousel" data-slide-to="4"></li>
-    </ol>
-    <div class="carousel-inner" role="listbox">
-      <div class="carousel-item active">
-        <img class="d-block w-100" src="assets/photos/Austria.jpg" alt="First slide">
-        <div class="carousel-caption">
-          <h3>Austria</h3>
-          <p>Gosau</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="assets/photos/lookout.jpg" alt="Second slide">
-        <div class="carousel-caption">
-          <h3>Lookout</h3>
-          <p>Mecseknádasd</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="assets/photos/mushroom.jpg" alt="Third slide">
-        <div class="carousel-caption">
-          <h3>Mushroom</h3>
-          <p>Pádis</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="assets/photos/doge.jpg" alt="Fourth slide">
-        <div class="carousel-caption">
-          <h3>Doge</h3>
-          <p>Pádis</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="assets/photos/snowy.jpg" alt="Fifth slide">
-        <div class="carousel-caption">
-          <h3>Snowy</h3>
-          <p>Durmitor</p>
-        </div>
-      </div>
-      <a class="carousel-control-prev" href="#MagicCarousel" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-        <span class="sc-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#MagicCarousel" role="button" data-slide="next">
-          <span class="carousel-control-next-icon"></span>
-          <span class="sc-only">Next</span>
-        </a>
-    </div>
+<div id="container">
+  <div
+    ng2-carouselamos
+    class="slides-wrapper"
+    [items]="items"
+    [width]="900"
+    [$prev]="prev"
+    [$next]="next"
+    [$item]="item"
+  >
   </div>
+
+
+<ng-template #prev>
+  <img src="assets/images/left.png" id="left" />
+</ng-template>
+<ng-template #next>
+  <img src="assets/images/right.png" id="right" />
+</ng-template>
+<ng-template #item let-item let-i="index">
+
+    <div class="items">
+      <img src="{{ item.name }}" class="items">
+    </div>
+
+</ng-template>
