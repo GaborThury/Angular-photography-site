@@ -14,6 +14,7 @@ import { AlertModule } from 'ngx-bootstrap/alert';
 import { ImageDetailComponent } from './components/image-detail/image-detail.component';
 import { ImageService } from './services/image.service';
 import { FilterPipe } from './pipes/filter.pipe';
+import { FormsModule } from '@angular/forms';
 
 const paths: Routes = [
   { path: '', component: MyPhotosComponent, data: {
@@ -42,7 +43,8 @@ const paths: Routes = [
     TooltipModule.forRoot(),
     RouterModule.forRoot(paths),
     HttpClientModule,
-    AlertModule.forRoot()
+    AlertModule.forRoot(),
+    FormsModule
   ],
   providers: [
     ImageService,
