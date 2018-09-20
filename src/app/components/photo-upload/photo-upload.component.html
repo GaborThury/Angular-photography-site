@@ -1,5 +1,9 @@
 <h1>Photo upload</h1>
-<input style="display: none" type="file" (change)="onFileSelected($event)" #fileInput >
-<button type="button" class="btn btn-info"(click)="fileInput.click()" >Choose a file...</button>
-<button type="button" class="btn btn-success" (click)="onUpload()">Upload!</button>
-<p *ngIf="succesfulUpload" class="text-success">Upload succesful!</p>
+<div class="d-flex flex-column mb-3 buttons">
+  <input style="display: none" type="file" (change)="onFileSelected($event)" #fileInput>
+  <button type="button" class="btn btn-info mb-3"(click)="fileInput.click()" >Choose a file...</button>
+  <button type="button" class="btn btn-success mb-3"  (click)="onUpload()">Upload!</button>
+  <p *ngIf="succesfulUpload" class="text-success text">Upload succesful!</p>
+  <p *ngIf="errorInUploadProgress" class="text-danger text">Uploading failed! Only .jpg or .png files are accepted.</p>
+
+</div>

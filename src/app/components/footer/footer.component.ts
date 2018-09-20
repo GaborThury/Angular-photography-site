@@ -16,5 +16,4 @@ export class FooterComponent implements OnInit {
   validPages(): boolean {
     return this.router.url !== '/';
   }
-
 }

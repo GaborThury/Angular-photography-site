@@ -1,12 +1,16 @@
 ul { 
   width: 1200px;
-  margin: 20px auto
+  margin: 20px auto;
+  background-color: #eee
 }
-li {
-  display: inline
-}
+
 .tn {
+  display: inline;
   margin: 6px;
   border: 4px solid #eee;
   box-shadow: #555 1px 1px 8px 1px;
+}
+img:hover {
+  opacity: 0.5;
+  filter: alpha(opacity=50); /* For IE8 and earlier */
 }
