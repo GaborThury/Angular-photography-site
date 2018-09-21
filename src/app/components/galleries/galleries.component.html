@@ -7,7 +7,7 @@
   </div>
   <ul class=" d-flex align-content flex-wrap" id="thumbnailList">
     <div class="tn d-flex flex-column" *ngFor="let image of (visibleImages | filter:filterBy)">
-        <img (click)="open(image.url)" src="http://localhost:3010/uploads/{{image.url}}" class="img-fluid" width="300" height="200" alt="image">
+        <img (click)="open(image.url)" src="http://localhost:3010/uploads/thumbnails/{{image.url}}" class="img-fluid" width="300" height="200" alt="image">
         <a class="mx-auto pd-2"> {{image.title}} </a>
     </div>
   </ul>
